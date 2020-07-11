@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Route } from "react-router-dom";
 import GSAP from "gsap";
 
@@ -19,26 +19,56 @@ const routes = [
   {path: '/about', name: 'About', Component: About}  
 ];
 
+function debounce (fn, ms) {
+  let timer;
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      timer = null;
+      fn.apply(this, arguments);
+    }, ms);
+  };
+}
+
 const App = () => {
+  const [dimensions, setdimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth
+  });
+
+  // Wait until resources have loaded
+  GSAP.to("body", 0, {visibility: "visible"});
 
   useEffect(() => {
     // Grab inner height of window for mobile reasons when dealing with vh
-    let vh = window.innerHeight * 0.01;
+    let vh = dimensions.height * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
 
-    // Wait until resources have loaded
-    GSAP.to("body", 0, {visibility: "visible"});
-  }, []);
+    // Resize window 
+    const debounceHandleResize = debounce(function handleResize (){
+      setdimensions({
+        height: window.innerHeight,
+        width: window.innerWidth
+      });
+    }, 1000);
+
+    window.addEventListener('resize', debounceHandleResize);
+
+    return () => window.removeEventListener('resize', debounceHandleResize);
+
+  }, [dimensions.height]);
 
   return (
     <>
-     <Header />
-     {routes.map(({path, Component}) => (
-       <Route key={path} exact path={path}>
-         <Component />
-       </Route>
-     ))}
-     <Navigation />
+      <Header />
+      <div className="App">
+        {routes.map(({path, Component}) => (
+          <Route key={path} exact path={path}>
+            <Component />
+          </Route>
+        ))}
+      </div>
+      <Navigation />
     </>
   );
 }

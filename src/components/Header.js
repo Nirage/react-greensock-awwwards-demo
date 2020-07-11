@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import { ReactComponent as UpArrow } from "../assets/up-arrow-circle.svg";
-import { openMenu, closeMenu } from "../animations/menuAnimations";
+// import { openMenu, closeMenu } from "../animations/menuAnimations";
 
 // Define reducer
 
@@ -13,11 +13,11 @@ const Header = ({ history, dimensions }) => {
     history.listen(() => {
       setMenuState({ menuOpened: false });
     });
-    if (menuState.menuOpened === true) {
-      openMenu(dimensions.width);
-    } else if (menuState.menuOpened === false) {
-      closeMenu();
-    }
+    // if (menuState.menuOpened === true) {
+    //   openMenu(dimensions.width);
+    // } else if (menuState.menuOpened === false) {
+    //   closeMenu();
+    // }
   });
 
   return (
