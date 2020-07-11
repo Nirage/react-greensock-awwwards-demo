@@ -1,7 +1,7 @@
 .cases {
   height: 50vh;
   height: calc(var(--vh, 1vh) * 50);
-  .cases-navigation {
+  &-navigation {
     position: absolute;
     bottom: 0px;
     width: 100%;
@@ -14,22 +14,22 @@
     @include media("<=tablet") {
       display: none;
     }
-    .cases-arrow {
-      background: rgba(0, 0, 0, 0.4);
-      height: 72px;
-      width: 72px;
-      border-radius: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      svg {
-        color: $white;
-        height: 28px;
-        width: 28px;
-      }
-      &.disabled {
-        opacity: 0.3;
-      }
+  }
+  &-arrow {
+    background: rgba(0, 0, 0, 0.4);
+    height: 72px;
+    width: 72px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      color: $white;
+      height: 28px;
+      width: 28px;
+    }
+    &.disabled {
+      opacity: 0.3;
     }
   }
   .row {
@@ -45,7 +45,7 @@
           opacity: 0.4;
         }
       }
-      .case-details {
+      &-details {
         width: 33.3333vw;
         height: 50vh;
         height: calc(var(--vh, 1vh) * 50);
@@ -93,7 +93,7 @@
           }
         }
       }
-      .case-image {
+      &-image {
         top: 0;
         left: 0;
         width: 100%;
