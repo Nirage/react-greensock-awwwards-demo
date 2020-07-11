@@ -9,6 +9,7 @@ import CaseStudies from "./pages/CaseStudies";
 import Approach from "./pages/Approach";
 import Services from "./pages/Services";
 import About from "./pages/About"; 
+import Navigation from "./components/Navigation";
 
 const routes = [
   {path: '/', name: 'Home', Component: Home},
@@ -37,6 +38,7 @@ const App = () => {
          <Component />
        </Route>
      ))}
+     <Navigation />
     </>
   );
 }
