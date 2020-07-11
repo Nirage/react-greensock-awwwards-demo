@@ -39,17 +39,17 @@
         width: 100%;
         display: block;
       }
-    }
-    &-close {
-      position: absolute;
-      display: none;
+      &-close {
+        position: absolute;
+        display: none;
 
-      svg {
-        @include media("<=tablet") {
-          width: 56px;
-        }
-        @include media("<=phone") {
-          width: 48px;
+        svg {
+          @include media("<=tablet") {
+            width: 56px;
+          }
+          @include media("<=phone") {
+            width: 48px;
+          }
         }
       }
     }
