@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 
-import { ReactComponent as Loader } from "../assets/loader.svg";
 import { homeAnimation } from "../animations/animations";
 import Overlay from "../components/Overlay"; 
 import Banner from "../components/Banner";
@@ -19,10 +18,10 @@ const Home = () => {
       setLoaded(true);
     }
   }
-
+    
   useEffect(() => {
     loaded && homeAnimation(completeAnimation);
-    
+
     fetch('https://picsum.photos/v2/list?page=3&limit=3')
       .then(response => response.json())
       .then(data => setData(data))
@@ -30,12 +29,11 @@ const Home = () => {
   }, [loaded]);
 
   return (
-    <>
-      {!loaded && <Loader />}
+    <div className={loaded ? "loaded" : "loading"}>
       {!animationComplete && <Overlay />}
-      {loaded && <Banner />}
+      {loaded ? <Banner /> : <div class="loader"></div>}
       <Cases cases={cases} imageLoaded={imageLoaded} />
-    </>
+    </div>
   )
 }
 
