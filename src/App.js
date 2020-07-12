@@ -60,7 +60,7 @@ const App = () => {
 
   return (
     <>
-      <Header />
+      <Header dimensions={dimensions} />
       <div className="App">
         {routes.map(({path, Component}) => (
           <Route key={path} exact path={path}>

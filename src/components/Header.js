@@ -1,23 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { withRouter } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import { ReactComponent as UpArrow } from "../assets/up-arrow-circle.svg";
-// import { openMenu, closeMenu } from "../animations/menuAnimations";
+import { openMenu, closeMenu } from "../animations/menuAnimations";
 
-// Define reducer
+const Header = ({history, dimensions}) => {
+  const [menuState, setMenuState] = useState(false);
 
-const Header = ({ history, dimensions }) => {
-  const [menuState, setMenuState] = useState({ menuOpened: false });
   useEffect(() => {
-    //Listening for page changes.
     history.listen(() => {
-      setMenuState({ menuOpened: false });
+      setMenuState(false);
     });
-    // if (menuState.menuOpened === true) {
-    //   openMenu(dimensions.width);
-    // } else if (menuState.menuOpened === false) {
-    //   closeMenu();
-    // }
+
+    menuState ? openMenu(dimensions.width) : closeMenu();
   });
 
   return (
@@ -31,14 +25,14 @@ const Header = ({ history, dimensions }) => {
           </div>
           <div className='nav-toggle'>
             <div
-              onClick={() => setMenuState({ menuOpened: true })}
+              onClick={() => setMenuState(true)}
               className='hamburger-menu'>
               <span></span>
               <span></span>
             </div>
             <div
               className='hamburger-menu-close'
-              onClick={() => setMenuState({ menuOpened: false })}>
+              onClick={() => setMenuState(false)}>
               <UpArrow />
             </div>
           </div>
