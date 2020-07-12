@@ -22,16 +22,22 @@ const Home = () => {
   useEffect(() => {
     loaded && homeAnimation(completeAnimation);
 
-    fetch('https://picsum.photos/v2/list?page=3&limit=3')
+    fetch('https://picsum.photos/v2/list?page=4&limit=3')
       .then(response => response.json())
-      .then(data => setData(data))
+      .then(data => {
+        // Resize the image files
+        const updateData = data.map(obj => {
+          return Object.assign(obj, { download_url: `https://picsum.photos/id/${obj.id}/600/400` });
+        });
+        setData(updateData);
+      })
       .catch(error => console.log("Sorry something went wrong", error));
   }, [loaded]);
 
   return (
     <div className={loaded ? "loaded" : "loading"}>
       {!animationComplete && <Overlay />}
-      {loaded ? <Banner /> : <div class="loader"></div>}
+      {loaded ? <Banner /> : <div className="loader"></div>}
       <Cases cases={cases} imageLoaded={imageLoaded} />
     </div>
   )
