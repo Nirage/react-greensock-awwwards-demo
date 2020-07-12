@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import { ReactComponent as UpArrow } from "../assets/up-arrow-circle.svg";
-import { openMenu, closeMenu } from "../animations/menuAnimations";
+import { openMenu, closeMenu } from "../animations/animations";
 
 const Header = ({history, dimensions}) => {
   const [menuState, setMenuState] = useState(false);
