@@ -42,7 +42,7 @@
       cursor: pointer;
       &:hover {
         .case-image {
-          opacity: 0.4;
+          opacity: 0.15;
         }
       }
       &-details {
@@ -101,11 +101,14 @@
         overflow: hidden;
         position: absolute;
         opacity: 0.65;
-        transition: 0.4s cubic-bezier(0.6, -0.05, 0.1, 0.99);
+        transition: 0.8s cubic-bezier(0.6, -0.05, 0.1, 1);
         img {
           height: 100%;
           width: 100%;
-          object-fit: cover;
+          object-fit: scale;
+          flex-shrink: 2;
+          transform-origin: center center;
+          transform: scale(1);
         }
       }
     }

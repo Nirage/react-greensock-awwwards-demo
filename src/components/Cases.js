@@ -1,6 +1,8 @@
 import React from "react";
+
 import { ReactComponent as CasesNext } from "../assets/arrow-right.svg";
 import { ReactComponent as CasesPrev } from "../assets/arrow-left.svg";
+import Case from "./Case";
 
 const caseStudies = [
   {
@@ -36,20 +38,7 @@ const Cases = () => {
           </div>
         </div>
         <div className='row'>
-          {caseStudies.map(caseItem => (
-            <div className='case' key={caseItem.id}>
-              <div className='case-details'>
-                <span>{caseItem.subtitle}</span>
-                <h2>{caseItem.title}</h2>
-              </div>
-              <div className='case-image'>
-                <img
-                  src={require(`../assets/${caseItem.img}.png`)}
-                  alt={caseItem.title}
-                />
-              </div>
-            </div>
-          ))}
+          {caseStudies.map(item => <Case item={item} key={item.id} />)}
         </div>
       </div>
     </section>
