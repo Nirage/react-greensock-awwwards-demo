@@ -39,10 +39,16 @@
     .case {
       position: relative;
       background: $black;
-      cursor: pointer;
+      text-decoration: none;
       &:hover {
         .case-image {
-          opacity: 0.15;
+          opacity: 0.2;
+        }
+        h2 {
+          &:after {
+            width: 100%;
+            left: 0;
+          }
         }
       }
       &-details {
@@ -51,7 +57,6 @@
         height: calc(var(--vh, 1vh) * 50);
         display: flex;
         flex-direction: column;
-        justify-content: center;
         padding: 32px;
         box-sizing: border-box;
         z-index: 1;
@@ -63,7 +68,6 @@
           padding: 16px;
         }
         span {
-          margin-top: 156px;
           font-size: 1.6rem;
           opacity: 0.8;
           color: $white;
@@ -77,10 +81,9 @@
           }
         }
         h2 {
+          position: relative;
           font-size: 2.4rem;
           line-height: 3.4rem;
-          width: 85%;
-          margin-top: 16px;
           color: $white;
           @include media("<=desktop", ">tablet") {
             font-size: 2rem;
@@ -89,7 +92,17 @@
           @include media("<=phone") {
             font-size: 1.7rem;
             line-height: 2.2rem;
-            margin-top: 8px;
+          }
+          &:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: $white;
+            transition: 0.4s ease;
           }
         }
       }
@@ -105,7 +118,7 @@
         img {
           height: 100%;
           width: 100%;
-          object-fit: scale;
+          object-fit: cover;
           flex-shrink: 2;
           transform-origin: center center;
           transform: scale(1);

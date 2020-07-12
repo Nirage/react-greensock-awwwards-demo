@@ -4,45 +4,24 @@ import { ReactComponent as CasesNext } from "../assets/arrow-right.svg";
 import { ReactComponent as CasesPrev } from "../assets/arrow-left.svg";
 import Case from "./Case";
 
-const caseStudies = [
-  {
-    id: 1,
-    subtitle: "Curology",
-    title: "A custom formula for your skin’s unique needs",
-    img: "curology-min"
-  },
-  {
-    id: 2,
-    subtitle: "Yourspace",
-    title: "Open space floor plans for you next venture",
-    img: "yourspace-min"
-  },
-  {
-    id: 3,
-    subtitle: "Lumin",
-    title: "For your best look ever",
-    img: "lumin-min"
-  }
-];
-
-const Cases = () => {
-  return (
-    <section className='cases'>
-      <div className='container-fluid'>
-        <div className='cases-navigation'>
-          <div className='cases-arrow prev disabled'>
-            <CasesPrev />
-          </div>
-          <div className='cases-arrow next'>
-            <CasesNext />
-          </div>
+const Cases = ({cases, imageLoaded}) => (
+  <section className='cases'>
+    <div className='container-fluid'>
+      <div className='cases-navigation'>
+        <div className='cases-arrow prev disabled'>
+          <CasesPrev />
         </div>
-        <div className='row'>
-          {caseStudies.map(item => <Case item={item} key={item.id} />)}
+        <div className='cases-arrow next'>
+          <CasesNext />
         </div>
       </div>
-    </section>
-  );
-};
+      <div className='row'>
+        {cases.map(item => (
+          <Case item={item} key={item.id} imageLoaded={imageLoaded} />
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export default Cases;
