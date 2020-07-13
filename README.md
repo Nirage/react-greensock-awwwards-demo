@@ -5,6 +5,7 @@
 - Animated Overlay Introduction to reveal Homepage
 - Homepage view includes Header, Banner and Cases
 - Hamburger menu animates up and down
+- Added React Router to seamlessly go through pages ie Cases Studies, Approach & Services
 - Cases are dynamically pulled in from picsum.photos
 - Added a loader
 
