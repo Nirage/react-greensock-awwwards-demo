@@ -44,6 +44,15 @@ html {
     @include media("<=phone") {
       padding: 0 16px;
     }
+    h3 {
+      position: absolute;
+      width: 100%;
+      font-size: 2rem;
+      text-align: center;
+      &.h3-mesh {
+        color: $white;
+      }
+    }
   }
   .v-center {
     align-items: center;

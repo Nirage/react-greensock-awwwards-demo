@@ -22,7 +22,7 @@ const Home = ({dimensions}) => {
   useEffect(() => {
     loaded && homeAnimation(completeAnimation);
 
-    fetch('https://picsum.photos/v2/list?page=4&limit=9')
+    fetch('https://picsum.photos/v2/list?page=2&limit=9')
       .then(response => response.json())
       .then(data => {
         // Resize the image files

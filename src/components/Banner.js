@@ -1,4 +1,6 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+
 import { ReactComponent as RightArrow } from "../assets/arrow-right.svg";
 
 const Banner = () => {
@@ -15,9 +17,9 @@ const Banner = () => {
             </div>
           </h2>
           <div className='btn-row'>
-            <a href='/'>
+            <NavLink to='/more-about-us'>
               More about us <RightArrow />
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>
