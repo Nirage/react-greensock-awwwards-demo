@@ -1,6 +1,10 @@
 .cases {
   height: 50vh;
   height: calc(var(--vh, 1vh) * 50);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex: 1;
   &-navigation {
     position: absolute;
     bottom: 0px;
@@ -28,8 +32,13 @@
       height: 28px;
       width: 28px;
     }
-    &.disabled {
+    &[disabled] {
       opacity: 0.3;
+      cursor: not-allowed;
+    }
+    &:focus,
+    &:active {
+      outline: none;
     }
   }
   .row {

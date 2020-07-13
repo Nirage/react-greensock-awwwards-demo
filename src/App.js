@@ -31,7 +31,7 @@ function debounce (fn, ms) {
 }
 
 const App = () => {
-  const [dimensions, setdimensions] = useState({
+  const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth
   });
@@ -46,11 +46,11 @@ const App = () => {
 
     // Resize window 
     const debounceHandleResize = debounce(function handleResize (){
-      setdimensions({
+      setDimensions({
         height: window.innerHeight,
         width: window.innerWidth
       });
-    }, 1000);
+    }, 500);
 
     window.addEventListener('resize', debounceHandleResize);
 
@@ -64,7 +64,7 @@ const App = () => {
       <div className="App">
         {routes.map(({path, Component}) => (
           <Route key={path} exact path={path}>
-            <Component />
+            <Component dimensions={dimensions} />
           </Route>
         ))}
       </div>

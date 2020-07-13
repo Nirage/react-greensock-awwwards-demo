@@ -5,7 +5,7 @@ import Overlay from "../components/Overlay";
 import Banner from "../components/Banner";
 import Cases from "../components/Cases";
 
-const Home = () => {
+const Home = ({dimensions}) => {
   const [animationComplete, setanimationComplete] = useState(false);
   const [cases, setData] = useState([]);
   const completeAnimation = () => setanimationComplete(true);
@@ -22,7 +22,7 @@ const Home = () => {
   useEffect(() => {
     loaded && homeAnimation(completeAnimation);
 
-    fetch('https://picsum.photos/v2/list?page=4&limit=3')
+    fetch('https://picsum.photos/v2/list?page=4&limit=9')
       .then(response => response.json())
       .then(data => {
         // Resize the image files
@@ -38,7 +38,7 @@ const Home = () => {
     <div className={loaded ? "loaded" : "loading"}>
       {!animationComplete && <Overlay />}
       {loaded ? <Banner /> : <div className="loader"></div>}
-      <Cases cases={cases} imageLoaded={imageLoaded} />
+      <Cases cases={cases} imageLoaded={imageLoaded} dimensions={dimensions} />
     </div>
   )
 }
