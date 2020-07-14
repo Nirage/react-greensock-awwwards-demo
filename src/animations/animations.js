@@ -112,10 +112,21 @@ export const homeAnimation = (completeAnimation) => {
       ease: 'expo.inOut',
       stagger: 0.4
     })
+    .to('.hamburger-menu span', 0.6, {
+      delay: -0.6,
+      scaleX: 1,
+      scaleY: 1,
+      transformOrigin: '50% 0%',
+      ease: 'expo.inOut'
+    })
+    .from('.btn-row a', 1, {
+      y: 100,
+      ease: 'expo.inOut'
+    })
     .to('.overlay-bottom', 1.6, {
       width: 0,
       ease: 'expo.inOut',
-      delay: -0.8,
+      delay: -1,
       stagger: 0.4
     })
     .to('.overlay', 0, { display: 'none'})
