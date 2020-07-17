@@ -1,5 +1,7 @@
 # Inpsired Awwwards website demo page
 
+Demo - https://react-greensock-awwwards-demo.netlify.app/
+
 ## Create
 
 - Animated Overlay Introduction to reveal Homepage
@@ -11,9 +13,9 @@
 
 ## Further things left to do
 
-- Get Slider to work
+- Move to Recoil State Manager
 - Animate all Arrows
-- Find a suitable API that contains all relevant data
+- Create Parallax onclick "More about us"
 
 ## Available Scripts
 
